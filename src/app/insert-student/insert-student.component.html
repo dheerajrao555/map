@@ -1,0 +1,53 @@
+<p>insert-student works!</p>
+<a [routerLink]="['/details']" routerLinkActive="router-link-active">details</a>
+<!-- <form [formGroup]="registerForm" (change)="m1(registerForm);" >
+    {{registerForm.dirty}} -->
+    <form #registerForm="ngForm"  (change)="m1(registerForm);">
+        {{registerForm.dirty}}
+
+      <div class="col-md-12 form-group">
+    <div class="col-md-6">
+      <div class="col-md-1">
+        <label class="control-label">Name</label>
+      </div>
+      <div class="col-md-6">
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          [(ngModel)]="s1.name"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 form-group">
+    <div class="col-md-6">
+      <div class="col-md-1">
+        <label class="control-label">Email</label>
+      </div>
+      <div class="col-md-6">
+        <input
+          class="form-control"
+          type="text"
+          name="email"
+          [(ngModel)]="s1.email"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="col-md-1">
+      <!-- <input class="col-md-4 btn btn-success" type=submit value="submit" (click)="insert()"> -->
+    </div>
+    <div class="col-md-3">
+      <input
+        class="col-md-5 btn btn-success"
+        type="submit"
+        value="submit"
+        (click)="insert()"
+      />
+    </div>
+  </div>
+</form>

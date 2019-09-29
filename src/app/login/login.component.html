@@ -1,0 +1,41 @@
+{{showMessage}}
+<div class="col-md-10 form-group margin">
+    <div class="col-md-6">
+        <div class="col-md-2">
+            <label class="control-label">Login</label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" type="text" name="name" [(ngModel)]="username">
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-10 form-group">
+    <div class="col-md-6">
+        <div class="col-md-2">
+            <label class="control-label">Password</label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" type="password" name="pwd" [(ngModel)]="pwd">
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <!-- <div class="col-md-1">
+        <input class="col-md-4 btn btn-success" type=submit value="submit" (click)="insert()">
+    </div> -->
+    <div class="col-md-4">
+        <input class="col-md-5 btn btn-success" type=submit value="Login" (click)="login();">
+        <!-- <a  class="col-md-5 btn btn-success" style='margin-left:16px' type=submit value="Register" (click)="register();"> -->
+            <a class="col-md-5 btn btn-success" style='margin-left:16px'  [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<div class=col-md-12>
+    <div class="alert alert-warning" *ngIf="_ls.expression">Sorry Invalid Credentislas</div>
+
+</div>

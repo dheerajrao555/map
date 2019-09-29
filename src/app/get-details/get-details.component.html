@@ -1,0 +1,50 @@
+<p>get-details works!</p>
+selected id is {{departmentId}}
+<div *ngIf="errorMessage">Error 404 Not Foumd</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of storingData| paginate: { itemsPerPage: 3, currentPage: p }">
+            <td><a [routerLink]="['/details',item.id]" routerLinkActive="router-link-active">{{item.id}}</a></td>
+
+            <td *ngIf="isNotClick">{{item.name}}</td>
+            <td *ngIf="isNotClick">{{item.email}}</td>
+
+
+            <td *ngIf="isClicked"> <input type="text" [(ngModel)]="item.name"></td>
+            <td *ngIf="isClicked"> <input type="text" [(ngModel)]="item.email"></td>
+            <button class="btn btn-success" (click)="deleteRecord(item.id)">Delete</button>&nbsp;
+            <button class="btn btn-success" (click)="updateData(item.id)"
+                *ngIf="isNotClick;else saveButton">Update</button>
+            <ng-template #saveButton>
+                <button class="btn btn-success" (click)="save(item)">Save</button>
+            </ng-template>
+
+            <!-- <td>
+                <input type="text"  [(ngModel)]="item.name" (show)="student.editable">
+                <span (hide)="student.editable">{{item.name }}</span>
+              </td>
+              <td>
+                <input type="text"  [(ngModel)]="item.email" ng-show="student.editable">
+                <span ng-hide="student.editable">{{item.email }}</span>
+              </td>
+              <td>
+                <span (click)="edit($event)">Edit</span>
+                <span ng-click="save($event)" (show)="student.editable">Save</span> -->
+            <!-- // <span ng-click="delete($index)"> | Delete</span> -->
+            <!-- </td> -->
+
+        </tr>
+
+
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>

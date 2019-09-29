@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"></li>
+      <li><a [routerLink]="['/insert']" routerLinkActive="router-link-active">Insert</a></li>
+      <li><a [routerLink]="['/details']" routerLinkActive="router-link-active">details</a> </li>
+      <li><a [routerLink]="['/deleteRecord']" routerLinkActive="router-link-active" >Delete</a></li>
+      <li><button type="button" class="btn btn-primary btn-lg " (click)="logout();">logout</button></li>
+    </ul>
+
+  </div>
+</nav>
